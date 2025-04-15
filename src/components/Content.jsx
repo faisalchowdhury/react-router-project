@@ -1,6 +1,13 @@
 import React from 'react';
-
+import { useLoaderData } from 'react-router';
+import Post from './Post';
 const Content = () => {
+
+  
+  const data = useLoaderData();
+
+  
+
     return (
         <>
           <section className='grid grid-cols-4 gap-5 my-5'>
@@ -11,7 +18,11 @@ const Content = () => {
         <h4>Coupon</h4>
       </div>
       <div className='right-area col-span-3 border border-sky-200 p-5 '>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. At nostrum eveniet possimus, necessitatibus unde, reprehenderit rem quidem doloribus vel aut praesentium doloremque autem asperiores, ut dolor accusantium? Sed, dolore itaque!
+        <div className='grid grid-cols-2 gap-5'>
+        {
+          data.map(item => <Post key={item.id} item={item}></Post> )
+        }
+        </div>
       </div>
      </section>
         </>

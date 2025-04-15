@@ -2,3 +2,8 @@
 @plugin 'daisyui' {
   themes : none
 }
+
+.active {
+  color: brown;
+  font-size: 18px;
+}
