@@ -1,11 +1,14 @@
 import './App.css'
+import Header from './global/Header'
 
 function App() {
 
 
   return (
     <>
-    <h1>sadfs</h1>
+    <div className='lg:w-6xl mx-auto'>
+     <Header></Header>
+    </div>
     </>
   )
 }
