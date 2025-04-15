@@ -1,5 +1,6 @@
 import { Logs, X } from 'lucide-react';
 import React, { useState } from 'react';
+import { NavLink } from 'react-router';
 
 
 const menuList = [
@@ -35,7 +36,7 @@ const Header = () => {
     
     return (
         <>
-        <div className="navbar bg-base-100 border-b border-slate-200">
+        <div className="navbar bg-base-100 border-b border-slate-200 py-5 ">
   <div className="navbar-start space-x-3">
 
     <div className='relative' onClick={() => setToggle(!toggle)}>
@@ -44,18 +45,18 @@ const Header = () => {
     }
     <ul className={`${toggle == false ? 'hidden' : 'block'} , text-white bg-purple-600  absolute`}>
     {
-        menuList.map((list) => <li className='px-10 py-1 hover:bg-purple-700' key={list.id}><a href={list.url}>{list.name}</a></li>)
+        menuList.map((list) => <li className='px-10 py-1 hover:bg-purple-700' key={list.id}><NavLink to={list.url}>{list.name}</NavLink></li>)
     }
     </ul>
     </div>
  
-    <a className="text-xl font-semibold">Bugnitian Blog</a>
+    <a className="text-xl font-semibold">Bugnician Blog</a>
   </div>
   <div className="navbar-center hidden md:flex">
     <ul className="menu menu-horizontal px-1">
       
       {
-        menuList.map((list) => <li key={list.id}><a href={list.url}>{list.name}</a></li>)
+        menuList.map((list) => <li key={list.id}><NavLink to={list.url}>{list.name}</NavLink></li>)
       }
 
     </ul>
