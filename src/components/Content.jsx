@@ -1,10 +1,10 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
-import Post from './Post';
+import { Outlet } from 'react-router';
+
 const Content = () => {
 
   
-  const data = useLoaderData();
+  
 
   
 
@@ -18,11 +18,7 @@ const Content = () => {
         <h4>Coupon</h4>
       </div>
       <div className='right-area col-span-3 border border-sky-200 p-5 '>
-        <div className='grid grid-cols-2 gap-5'>
-        {
-          data.map(item => <Post key={item.id} item={item}></Post> )
-        }
-        </div>
+        <Outlet></Outlet>
       </div>
      </section>
         </>

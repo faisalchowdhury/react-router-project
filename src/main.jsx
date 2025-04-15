@@ -7,6 +7,11 @@ import Home from './components/Home.jsx'
 import About from './components/About.jsx'
 import Content from './components/Content.jsx'
 import Contact from './components/Contact.jsx'
+import AllPosts from './components/AllPosts.jsx'
+import Details from './components/Details.jsx'
+
+
+
 
 const router = createBrowserRouter([
   {
@@ -15,10 +20,28 @@ const router = createBrowserRouter([
      { index : true , Component : Home},
      { path : 'about' ,Component : About },
      { path : 'blog' , Component : Content ,
-      loader : () => fetch('https://jsonplaceholder.typicode.com/posts'),
+      children : [
+        {index : true ,
+         Component : AllPosts,
+         loader : () => fetch('https://jsonplaceholder.typicode.com/posts'),
+        },
+        {
+          path : 'details/:postId',
+          Component : Details,
+          loader : ({params}) => fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+        
+          
+         
+        }
+      ]
      },
      { path : 'contact' , Component : Contact}
     ]
+  },
+
+  {
+    path : '*',
+    element : <h1>oppos 404 Page not found</h1>
   }
 ])
 
